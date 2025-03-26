@@ -71,11 +71,13 @@ jobs:
 
       # สร้าง Release บน GitHub ด้วย Tag เดียวกับ Docker image
       - name: Create Release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.versioning.outputs.VERSION }}
-          release_name: "Release ${{ steps.versioning.outputs.VERSION }}"
+          name: "Release ${{ steps.versioning.outputs.VERSION }}"
           draft: false
           prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
