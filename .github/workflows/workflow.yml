@@ -77,3 +77,5 @@ jobs:
           release_name: "Release ${{ steps.versioning.outputs.VERSION }}"
           draft: false
           prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
